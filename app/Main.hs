@@ -41,23 +41,21 @@ optionsParser defDataDir =
   Options <$>
   option
     auto
-    (long "port" <> short 'p' <> value defPort <>
-     help ("Port number for the webserver (default: " <> show defPort <> ")")) <*>
+    (long "port" <> short 'p' <> value defPort <> showDefault <>
+     help "Port number for the webserver") <*>
   strOption
-    (long "host" <> short 'h' <> value defHost <>
-     help ("Host name for the webserver (default: '" <> defHost <> "')")) <*>
+    (long "host" <> short 'h' <> value defHost <> showDefault <>
+     help "Host name for the webserver") <*>
   option
     readLogLevel
-    (long "log-level" <> short 'l' <> value LevelWarn <>
-     help
-       "Minimum log level (debug|info|warn|error) to be printing to stdout (default: 'warn')") <*>
+    (long "log-level" <> short 'l' <> value LevelWarn <> showDefault <>
+     help "Minimum log level (debug|info|warn|error) to be printing to stdout") <*>
   switch
     (long "verbose" <> short 'v' <>
      help "Make the server verbose (Off by default)") <*>
   strOption
-    (long "sqlite" <> value defSqlite <>
-     help
-       ("Database file for the SQLite backend (default: '" <> defSqlite <> "')"))
+    (long "sqlite" <> value defSqlite <> showDefault <>
+     help "Database file for the SQLite backend")
   where
     defPort = 3000
     defHost = "localhost"
