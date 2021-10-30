@@ -11,7 +11,6 @@ module Wesh.Parser
 
 import RIO
 import Data.Attoparsec.ByteString hiding (inClass, satisfy)
-import Data.Attoparsec.Combinator (many')
 import qualified Data.ByteString as B
 import Data.Attoparsec.ByteString.Char8 hiding (takeWhile1)
 

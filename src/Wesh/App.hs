@@ -66,7 +66,7 @@ getTerminalR token = do
 postResizeTerminalR :: Token -> HandlerFor App Value
 postResizeTerminalR token = do
   App {appWeshEnv} <- getYesod
-  parseJsonBody >>= \case
+  parseCheckJsonBody >>= \case
     A.Error err ->
       sendStatusJSON badRequest400 $
       makeError ("JSON Parse Error: " <> T.pack err)

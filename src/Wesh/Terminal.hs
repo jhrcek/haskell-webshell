@@ -43,7 +43,7 @@ withShell token cmd args onTerminal =
             setStdin (useHandleClose tSlaveHandle) $
             setStdout (useHandleClose tSlaveHandle) $
             setStderr (useHandleClose tSlaveHandle) processConfig
-       in withProcess customProcessConfig $ \process ->
+       in withProcessWait customProcessConfig $ \process ->
             race (onTerminal terminal) (waitExitCode process)
 
 terminalInputSink :: MonadIO m => Terminal -> ConduitT ByteString o m ()

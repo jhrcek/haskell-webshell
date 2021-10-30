@@ -71,7 +71,7 @@ main = do
     info
       (optionsParser defDataPath <*
        abortOption
-         ShowHelpText
+         (ShowHelpText Nothing)
          (long "help" <> short 'h' <> help "Display this message."))
       (header "wesh - WebShell service " <>
        progDesc
