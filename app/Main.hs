@@ -73,7 +73,7 @@ main = do
          (long "help" <> short 'h' <> help "Display this message."))
       (header "wesh - WebShell service " <>
        progDesc
-         "A webserver that that spawns local terminals \
+         "A webserver that spawns local terminals \
          \and pipes communication over websockets to and form the user browser")
   let warpSettings =
         Warp.setPort (port opts) $
